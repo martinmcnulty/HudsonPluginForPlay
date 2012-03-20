@@ -151,13 +151,15 @@ public class PlayAutoTestBuilder extends Builder{
 					}
 				}
 
-
-				String[] cmds= play_cmd.split(" ",2);
-				String cmd = playpath + " " + cmds[0] +" \""+workDir.toString()+"\" "+(cmds.length>=2? cmds[1]:"");
+				String cmd = playpath + " " + play_cmd;
+				if (System.getProperty("os.name").startsWith("Windows")) {
+				    cmd = "cmd /C '\"" + cmd + " && exit %%ERRORLEVEL%%\"'";
+				}
 
 				listener.getLogger().println("Executing " + cmd);
 				Proc proc = launcher.launch(cmd, new String[0],listener.getLogger(),workDir);
 				int exitcode = proc.join();
+				listener.getLogger().println("Play finished with exit code: " + exitcode);
 
 				exitcodes.put(play_cmd, (exitcode==0? "Done":"Fail"));
 

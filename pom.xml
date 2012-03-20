@@ -62,6 +62,10 @@
 			<id>m.g.o-public</id>
 			<url>http://maven.glassfish.org/content/groups/public/</url>
 		</repository>
+	<repository>
+	  <id>jenkins-ci</id>
+	  <url>http://maven.jenkins-ci.org/content/groups/artifacts</url>
+	</repository>
 
 		<repository>
 			<id>infradna</id>
@@ -73,6 +77,10 @@
 		<pluginRepository>
 			<id>m.g.o-public</id>
 			<url>http://maven.glassfish.org/content/groups/public/</url>
+		</pluginRepository>
+                <pluginRepository>
+			<id>jenkins-ci</id>
+			<url>http://maven.jenkins-ci.org/content/groups/artifacts</url>
 		</pluginRepository>
 	</pluginRepositories>
 
